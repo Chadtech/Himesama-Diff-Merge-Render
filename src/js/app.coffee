@@ -8,17 +8,17 @@ A =
   attributes:   (id: 'A')
   children: [(
     type:       'p'
-    attributes: ('class': 'point')
+    attributes: (className: 'point')
     children:   ['A']
   )]
 
 B = 
   type:         'div'
-  attributes:   (id: 'B')
+  attributes:   (id: 'yeeeeee')
   children: [(
     type:       'p'
-    attributes: ('class': 'point')
-    children:   ['B']
+    attributes: (className: 'point')
+    children:   ['yeeee']
   )]
 
 C = 
@@ -26,8 +26,8 @@ C =
   attributes:   (id: 'C')
   children: [(
     type:       'p'
-    attributes: ('class': 'point')
-    children:   ['C']
+    attributes: (className: 'point')
+    children:   ['WOW']
   )]
 
 updatedRoot =

@@ -28,12 +28,12 @@ module.exports = HTMLify =
       _.reduce keys, 
         (el, k) ->
           v = vo.attributes[k]
-          v = deCamelCase v
+          k = deCamelCase k
           switch k
             when 'style'
               v = styleString v
               el.setAttribute k, v
-            when 'className'
+            when 'class-name'
               el.setAttribute 'class', v
             when 'event'
               _.forEach (_.keys v), (e) =>

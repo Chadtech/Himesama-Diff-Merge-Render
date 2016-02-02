@@ -5,8 +5,8 @@ _ = require 'lodash'
 
 module.exports = StyleString = (style) ->
   _.reduce (_.keys style), 
-    (styleAttr, key) ->
+    (v, key) ->
       styling = style[key]
       key     = deCamelCase key
-      styleAttr + (delimit key, styling)
+      v + (delimit key, styling)
     ''
