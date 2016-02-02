@@ -36,7 +36,7 @@ updatedRoot =
     id:         'root'
     yeee:       'dank'
     wow:        'cool'
-  children:     [ A, B, C ]
+  children:     [ A, B, C, A, B, C ]
 
 
 Root  = document.getElementById 'root'

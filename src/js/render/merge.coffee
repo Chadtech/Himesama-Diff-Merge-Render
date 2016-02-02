@@ -13,10 +13,8 @@ HTMLify      = require './htmlify'
 module.exports = Merge = 
 
   entireTree: (el, vo) ->
-    console.log 'A'
     el = @outer el, vo 
-    @inner el, vo
-    # @inner el, vo, @inner   
+    @inner el, vo, @inner   
 
   outer: (el, vo) ->
 
@@ -55,7 +53,6 @@ module.exports = Merge =
 
 
   inner: (el, vo, next) ->
-    console.log typeof el, typeof vo
     elsChildren = _.toArray el.children
 
     f = min elsChildren.length, vo.children.length
@@ -64,8 +61,7 @@ module.exports = Merge =
       voChild = vo.children[fi]
 
       Merge.outer elChild, voChild
-      @inner elChild, voChild
-      # if next? then next elChild, voChild, next
+      if next? then next elChild, voChild, next
 
     s = max elsChildren.length, vo.children.length
     _.times (s - f), (si) =>
