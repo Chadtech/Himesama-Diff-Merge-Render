@@ -1,0 +1,155 @@
+@font-face
+  font-family HFNSS
+  src url('HFNSS.ttf')
+  
+@font-face
+  font-family HFLLG
+  src url('HFLLG.ttf')
+
+standardSize    = 2em
+biggerSize      = 4em
+wayBig          = 8em
+cellWidth       = 50px
+cellHeight      = 19px
+
+pointColor      = #b0a69a
+titleColor      = #a0968a
+// pointColor      = #c0c0c0
+// pointColor = #c0c0c0
+
+importantText   = #b39f4b
+importanterText = #e3d34b
+
+// importantText   = #f3d31b
+
+
+ignorable       = #807872
+// backgroundColor = #040a0e
+// backgroundColor = #080703
+// totalBlack      = #060a00
+almostBlack     = #182406
+backgroundColor = #000000
+totalBlack      = #000000
+trackerBorder   = #21211a
+
+red             = #f20723
+  
+
+body
+  background    backgroundColor
+  padding       0
+  margin        0
+  
+.header
+  font-family             HFNSS
+  color                   titleColor
+  font-size               biggerSize
+  // font-smooth             never
+  // webkit-font-smoothing   none
+  // -webkit-font-smoothing  none
+  margin                  0 
+  &.banner
+    color                 ignorable
+  
+
+.point
+  font-family             HFNSS
+  color                   pointColor
+  font-size               standardSize
+  // font-smooth             never
+  // webkit-font-smoothing   none
+  // -webkit-font-smoothing  none
+  margin                  0 
+  &.logic
+    font-family HFLLG
+  &.link
+    color importantText
+    cursor pointer
+    &:hover
+      color importanterText
+  &.ignorable
+    color ignorable
+  &.date
+    color titleColor
+  &.archive-item
+    color   #808f60
+    cursor  pointer
+    &:hover
+      color #8bcf4b
+    
+.point-section
+  font-family             HFNSS
+  color                   pointColor
+  font-size               standardSize
+  // font-smooth             never
+  // webkit-font-smoothing   none
+  // -webkit-font-smoothing  none
+  margin                  0 
+  width                   80%
+  height                  10em
+  background              none
+  outline                 none
+  outline                 none
+  &.logic
+    font-family HFLLG
+
+
+.container
+  padding     0
+  margin      1em
+  box-sizing  border-box
+  width       auto
+
+
+.row  
+  content         ''
+  display         table
+  clear           both
+  width           100%
+  &.big
+    min-height    3em
+ 
+
+.paper
+  padding-left 2em
+  padding-top  2em
+  width 968px
+  float left
+
+.archive
+  width 440px
+  float right
+  
+.column  
+  float         left 
+  position      relative
+  width         250px
+  &.big
+    width 440px
+    
+
+.mount
+  margin    0
+  padding   0
+  width     100%
+  height    100%
+
+.button
+  background-color        almostBlack
+  border-style            solid
+  border-width            2px
+  border-color            ignorable
+  font-family             HFNSS
+  color                   ignorable
+  font-size               standardSize
+  // font-smooth             never
+  // webkit-font-smoothing   none
+  // -webkit-font-smoothing  none
+  outline                 none
+  width                   100%
+  height                  1em
+  margin                  0
+  &:hover
+    background-color        almostBlack
+    color pointColor
+    // background-color        pointColor
