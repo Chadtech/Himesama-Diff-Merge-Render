@@ -12,9 +12,11 @@ HTMLify      = require './htmlify'
 
 module.exports = Merge = 
 
+
   entireTree: (el, vo) ->
     el = @outer el, vo 
     @inner el, vo, @inner   
+
 
   outer: (el, vo) ->
 
@@ -43,7 +45,11 @@ module.exports = Merge =
         newEl    = HTMLify.single vo
 
         _.forEach children, (child) ->
-          newEl.appendChild child
+          if _.isString child
+            # child = createTextNode child
+            newEl.textContent = child
+          else
+            newEl.appendChild child
 
         parent.replaceChild newEl, el
         
@@ -60,7 +66,7 @@ module.exports = Merge =
       elChild = elsChildren[fi]
       voChild = vo.children[fi]
 
-      Merge.outer elChild, voChild
+      elChild = Merge.outer elChild, voChild
       if next? then next elChild, voChild, next
 
     s = max elsChildren.length, vo.children.length
@@ -69,9 +75,9 @@ module.exports = Merge =
       voChild = vo.children[ si + f ]
 
       if _.isString voChild
+        # voChild = createTextNode voChild
         el.textContent = voChild
       else
-
         if elChild? then elChild.remove()
         else
           el.appendChild (HTMLify.entireTree voChild)

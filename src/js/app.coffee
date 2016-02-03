@@ -2,46 +2,39 @@
 _      = require 'lodash'
 Render = require './render'
 
+div = ->
+  attributes = arguments[0]
+  children   = _.toArray arguments
 
-A = 
-  type:         'div'
-  attributes:   (id: 'A')
-  children: [(
-    type:       'p'
-    attributes: (className: 'point')
-    children:   ['A']
-  )]
+  type:       'div'
+  attributes: attributes
+  children:   children.slice 1
 
-B = 
-  type:         'div'
-  attributes:   (id: 'yeeeeee')
-  children: [(
-    type:       'p'
-    attributes: (className: 'point')
-    children:   ['yeeee']
-  )]
+p = ->
+  attributes = arguments[0]
+  children   = _.toArray arguments
 
-C = 
-  type:         'div'
-  attributes:   (id: 'C')
-  children: [(
-    type:       'p'
-    attributes: (className: 'point')
-    children:   ['WOW']
-  )]
+  type:       'p'
+  attributes: attributes
+  children:   children.slice 1
 
-updatedRoot =
-  type:         'div'
-  attributes:
+justJunk = junk: 'JUNK'
+
+App = 
+  div 
     id:         'root'
     yeee:       'dank'
     wow:        'cool'
-  children:     [ A, B, C, A, B, C ]
+    div id: 'A',
+      div id: 'B',
+        div id: 'C',
+          p className: 'point', 'Yeee'
+
 
 
 Root  = document.getElementById 'root'
 
-dewit = => Render Root, updatedRoot
+dewit = => Render Root, App
 
 setTimeout dewit, 1000
 
