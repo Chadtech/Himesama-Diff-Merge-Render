@@ -15,13 +15,16 @@ module.exports = HTMLify =
   entireTree: (vo) ->
     el = @single vo
     _.forEach vo.children, (child) =>
+      if child.type is 'custom'
+        child = child.children[0]
       el.appendChild (@entireTree child)
     el
 
   single: (vo) ->
-    if typeof vo is 'string'
-      createTextNode vo
+    if vo.type is 'custom'
+      vo = vo.children[0]
 
+    if _.isString vo then createTextNode vo
     else
       keys = _.keys vo.attributes
 

@@ -15,4 +15,3 @@ module.exports = Diff =
     nn = el.nodeName
     nn = nn.toLowerCase()
     nn is vo.type
-

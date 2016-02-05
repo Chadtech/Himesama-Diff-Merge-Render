@@ -1,5 +1,6 @@
 # Dependencies
-_ = require 'lodash'
+_           = require 'lodash'
+styleString = require './style-string.coffee'
 
 module.exports = Stringify = 
 
@@ -18,7 +19,7 @@ module.exports = Stringify =
     attributes = _.map keys,
       (k) ->
         v = vo.attributes[k]
-        v = styleString style if k is 'style'
+        v = styleString v if k is 'style'
         k = 'class' if k is 'className'
 
         if k is 'event' then ''
