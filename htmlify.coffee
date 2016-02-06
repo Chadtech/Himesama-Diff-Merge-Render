@@ -13,21 +13,22 @@ styleString = require './style-string.coffee'
 module.exports = HTMLify =
 
   entireTree: (vo) ->
-    el = @single vo
-    _.forEach vo.children, (child) =>
-      if child.type is 'custom'
-        child = child.children[0]
-      el.appendChild (@entireTree child)
-    el
-
-  single: (vo) ->
     if vo.type is 'custom'
       vo = vo.children[0]
+
+    _.reduce vo.children, 
+      (el, child) =>
+        child = @entireTree child
+        el.appendChild child
+        el
+      @single vo
+
+
+  single: (vo) ->
 
     if _.isString vo then createTextNode vo
     else
       keys = _.keys vo.attributes
-
       _.reduce keys, 
         (el, k) ->
           v = vo.attributes[k]

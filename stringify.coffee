@@ -5,9 +5,12 @@ styleString = require './style-string.coffee'
 module.exports = Stringify = 
 
   HTML: (el) ->
-    attributes = _.map el.attributes, 
-      (attr) ->
-        { name, value } = attr 
+    keys = _.toArray el.attributes
+    keys = _.map keys, (k) -> k.nodeName
+    keys = _.sortBy keys
+    attributes = _.map keys, 
+      (k) ->
+        { name, value } = el.attributes[k] 
         name + '=' + value + ' '
 
     _.reduce attributes, 
@@ -16,6 +19,7 @@ module.exports = Stringify =
 
   VDOM: (vo) ->
     keys = _.keys vo.attributes
+    keys = _.sortBy keys
     attributes = _.map keys,
       (k) ->
         v = vo.attributes[k]
